@@ -55,8 +55,11 @@ export const studentInfo = (state = stateDefault, action) => {
     }
     case "EDIT_STUDENT": {
       let { student } = action;
+
       let editStudent = { ...state.student };
+
       editStudent.id = student.id;
+
       editStudent.fullName = student.fullName;
       editStudent.email = student.email;
       editStudent.phoneNumber = student.phoneNumber;
@@ -66,18 +69,18 @@ export const studentInfo = (state = stateDefault, action) => {
     case "UPDATE_STUDENT": {
       let { student } = action;
       // console.log(student);
-      let arrStudent = [...state.arrStudent];
+      let arrStudentUpdate = [...state.arrStudent];
       // console.log(state.arrStudent);
-      arrStudent.map((item, index) => {
+      arrStudentUpdate.map((item, index) => {
         if (student.id === item.id) {
-          // console.log("true");
-          // console.log(item.fullName);
-          arrStudent = { ...item, fullName: student.fullName };
-          console.log(arrStudent);
-          // return (state.arrStudent = arrStudent);
+          arrStudentUpdate.splice(index, 1, student);
+          // console.log(arrStudentUpdate);
+          state.arrStudent = arrStudentUpdate;
+
+          console.log(state);
+          return { ...state };
         }
       });
-     
     }
     default:
       return state;

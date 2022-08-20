@@ -5,7 +5,7 @@ export class StudentInfo extends Component {
   render() {
     let { student, arrStudent } = this.props;
     // console.log(student, arrStudent);
-    // console.log(this.props);
+
     return (
       <div>
         <h3 className="bg-dark text-white">Thông tin sinh viên</h3>

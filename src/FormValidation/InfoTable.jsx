@@ -35,7 +35,7 @@ export class InfoTable extends Component {
                           "none";
                         document.getElementById("button").style.display =
                           "block";
-
+                        document.getElementById("id").disabled = true;
                         const action = {
                           type: "EDIT_STUDENT",
                           student: st,
