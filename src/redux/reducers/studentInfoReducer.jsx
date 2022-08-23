@@ -2,19 +2,39 @@ const stateDefault = {
   arrStudent: [
     {
       id: 1,
-      fullName: "Nguyễn Văn A",
+      fullName: "Nguyễn Bình An",
       phoneNumber: "1234987572",
       email: "123@gmail.com",
     },
     {
       id: 2,
-      fullName: "Nguyễn Văn B",
+      fullName: "Lê Văn Thành",
       phoneNumber: "1234987572",
       email: "123@gmail.com",
     },
     {
       id: 3,
-      fullName: "Nguyễn Văn C",
+      fullName: "Trần Thành Công",
+      phoneNumber: "1234237572",
+      email: "122313@gmail.com",
+    },
+  ],
+  arrStudentSearch: [
+    {
+      id: 1,
+      fullName: "Nguyễn Bình An",
+      phoneNumber: "1234987572",
+      email: "123@gmail.com",
+    },
+    {
+      id: 2,
+      fullName: "Lê Văn Thành",
+      phoneNumber: "1234987572",
+      email: "123@gmail.com",
+    },
+    {
+      id: 3,
+      fullName: "Trần Thành Công",
       phoneNumber: "1234237572",
       email: "122313@gmail.com",
     },
@@ -25,6 +45,7 @@ const stateDefault = {
     phoneNumber: "",
     email: "",
   },
+ 
 };
 
 export const studentInfo = (state = stateDefault, action) => {
@@ -36,7 +57,7 @@ export const studentInfo = (state = stateDefault, action) => {
       state.student[id] = value;
       return { ...state };
     }
-    case "HANLDE_SUBMIT": {
+    case "HANDLE_SUBMIT": {
       let { student } = action;
 
       let arrStudentUpdate = [...state.arrStudent];
@@ -71,16 +92,47 @@ export const studentInfo = (state = stateDefault, action) => {
       // console.log(student);
       let arrStudentUpdate = [...state.arrStudent];
       // console.log(state.arrStudent);
+
       arrStudentUpdate.map((item, index) => {
+        // arrStudentUpdate.filter((item) => item.id !== student.id);
+        // console.log(arrStudentUpdate);
+
+        // state.arrStudent = arrStudentUpdate;
+        // return { ...state };
         if (student.id === item.id) {
           arrStudentUpdate.splice(index, 1, student);
-          // console.log(arrStudentUpdate);
-          state.arrStudent = arrStudentUpdate;
 
-          console.log(state);
-          return { ...state };
+          state.arrStudent = arrStudentUpdate;
+          // console.log(state);
         }
       });
+      state.arrStudent = arrStudentUpdate;
+      return { ...state };
+    }
+    case "SEARCH": {
+      let { value } = action;
+      // console.log(value);
+
+      let arrStudentSearch = [...state.arrStudentSearch];
+      if (!value) {
+        // console.log(arrStudentSearch);
+        state.arrStudent = arrStudentSearch;
+      }
+      arrStudentSearch.map((item, index) => {
+        if (
+          item.id.toString() === value ||
+          item.fullName.toString().toLowerCase() === value ||
+          item.fullName.toString() === value
+        ) {
+          // let newArrStudentSearch = [...state.arrStudent];
+
+          arrStudentSearch = arrStudentSearch.filter((it) => it === item);
+
+          state.arrStudent = arrStudentSearch;
+        }
+      });
+      // console.log(state);
+      return { ...state };
     }
     default:
       return state;
