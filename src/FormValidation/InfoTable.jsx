@@ -48,6 +48,7 @@ export class InfoTable extends Component {
                     <button
                       className="btn btn-danger mx-2"
                       onClick={() => {
+                       
                         const action = {
                           type: "DELETE_STUDENT",
                           id: st.id,

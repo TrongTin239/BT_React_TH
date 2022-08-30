@@ -37,6 +37,11 @@ function App() {
                 Form Validation
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/bookingticket">
+                Bài Tập Booking
+              </NavLink>
+            </li>
             {/* <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"

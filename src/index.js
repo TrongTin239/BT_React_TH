@@ -9,6 +9,8 @@ import ExerciseCart from "./ExerciseCart/ExerciseCart";
 import FormValidation from "./FormValidation/FormValidation";
 import { Provider } from "react-redux";
 import { store } from "./redux/configStore";
+import BookingTicket from "./BTBookingTicKet/BookingTicket";
+
 //redux
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -20,6 +22,9 @@ root.render(
         <Route path="testGlass" element={<BaiTapThayKinh />}></Route>
         <Route path="exercisecart" element={<ExerciseCart />}></Route>
         <Route path="formvalidate" element={<FormValidation />}></Route>
+        <Route path="bookingticket" element={<BookingTicket />}></Route>
+        
+
       </Routes>
     </BrowserRouter>
   </Provider>
