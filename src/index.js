@@ -10,6 +10,7 @@ import FormValidation from "./FormValidation/FormValidation";
 import { Provider } from "react-redux";
 import { store } from "./redux/configStore";
 import BookingTicket from "./BTBookingTicKet/BookingTicket";
+import Tictactoe from "./Tictactoe/Tictactoe";
 
 //redux
 
@@ -23,8 +24,7 @@ root.render(
         <Route path="exercisecart" element={<ExerciseCart />}></Route>
         <Route path="formvalidate" element={<FormValidation />}></Route>
         <Route path="bookingticket" element={<BookingTicket />}></Route>
-        
-
+        <Route path="tictactoe" element={<Tictactoe />}></Route>
       </Routes>
     </BrowserRouter>
   </Provider>

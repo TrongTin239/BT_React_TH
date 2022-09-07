@@ -42,6 +42,15 @@ function App() {
                 Bài Tập Booking
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                to="/tictactoe
+              "
+              >
+                Tictactoe
+              </NavLink>
+            </li>
             {/* <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
